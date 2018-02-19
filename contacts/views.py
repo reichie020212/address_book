@@ -22,7 +22,7 @@ def signup(request):
     return render(request, 'registration/signup.html', {'form': form})
 @login_required(login_url='/')
 def view_home(request):
-	contact_info = ContactInfo.objects.all()
+	contact_info = ContactInfo.objects.filter(created_by=request.user)
 	return render(request,'contacts/home.html',{'contact_info':contact_info})
 
 def redirecting(request):
@@ -33,7 +33,8 @@ def add(request):
 	if request.method == "POST":
 			form = ContactInfoForm(request.POST)
 			if form.is_valid():
-				contact = form.save()
+				contact = form.save(commit=False)
+				contact.created_by = request.user
 				contact.save()
 				return redirect('view_home')
 	else:
@@ -46,7 +47,8 @@ def edit(request,pk):
 	if request.method == "POST":
 		form = ContactInfoForm(request.POST, instance=contact_info)
 		if form.is_valid():
-			contact_info=form.save()
+			contact_info=form.save(commit=False)
+			contact_info.created_by = request.user
 			contact_info.save()
 			return redirect('view_home')
 	else:

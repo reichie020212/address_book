@@ -16,11 +16,11 @@
       {% for contact in contact_info %}
       <tr>
         <td>{{contact.first_name}}</td>
-  		<td>{{contact.last_name}}</td>
-  		<td>{{contact.contact_number}}</td>
-  		<td>{{contact.address}}</td>
-      <td><a class="btn btn-default" href="{% url 'edit' pk=contact.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-  <a class="btn btn-default" href="{% url 'displaycontact' pk=contact.pk %}"><span class="glyphicon glyphicon-remove"></span></a></td>
+    		<td>{{contact.last_name}}</td>
+    		<td>{{contact.contact_number}}</td>
+    		<td>{{contact.address}}</td>
+        <td><a class="btn btn-default" href="{% url 'edit' pk=contact.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a class="btn btn-default" href="{% url 'displaycontact' pk=contact.pk %}"><span class="glyphicon glyphicon-remove"></span></a></td>
   	  </tr>
         {% endfor %}
     </tbody>
