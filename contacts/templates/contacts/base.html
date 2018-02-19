@@ -12,14 +12,14 @@
       <a class="navbar-brand" href="#">My Address Book</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="">Home</a></li>
-      <li><a href="/highschool/students/">Students</a></li>
-      <li><a href="/highschool/subjects/">Subjects</a></li>
-      <li><a href="/highschool/yearsections/">Year and Sections</a></li>
-      <li><a href="/highschool/grades/">Grades</a></li>
+      <li><a href="/home/">Home</a></li>
+      <li><a href="">CSV Import</a></li>
+      <li><a href="">CSV Export</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
+      {% if user.is_authenticated %}
       <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      {% endif %}
     </ul>
   </div>
 </nav>

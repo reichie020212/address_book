@@ -1,0 +1,12 @@
+{% extends 'contacts/base.html' %}
+
+{% block content %}
+	
+	<div class="add">
+	<form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+     	<button type="submit" class="save btn btn-default">Save</button>
+    </form>
+    <a href="/home/" class="button">Back</a>
+</div>
+{% endblock %}
